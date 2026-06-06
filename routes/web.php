@@ -4,6 +4,7 @@ use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\LogoutController;
 use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 // Login routes
 Route::view('/login', 'auth.login')
@@ -30,3 +31,7 @@ Route::post('/register', RegisterController::class)
 Route::get('/', [HomeController::class, 'index'])
     ->middleware('auth')
     ->name('home');
+
+Route::get('/users/list', [UserController::class, 'index'])
+    ->middleware('auth')
+    ->name('users');
