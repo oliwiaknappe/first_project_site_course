@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\User;
-use Faker\Factory;
+//use Faker\Factory;
 use Illuminate\Support\Facades\App;
 
 class UserController extends Controller

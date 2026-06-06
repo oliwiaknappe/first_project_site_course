@@ -6,32 +6,22 @@ use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
-// Login routes
-Route::view('/login', 'auth.login')
-    ->middleware('guest')
-    ->name('login');
 
-Route::post('/login', LoginController::class)
-    ->middleware('guest');
-
-// Logout route
-Route::post('/logout', LogoutController::class)
-    ->middleware('auth')
-    ->name('logout');
-
-// Registration route
-Route::view('/register', 'auth.register')
-    ->middleware('guest')
-    ->name('register');
-
-Route::post('/register', RegisterController::class)
-    ->middleware('guest');
+// Public routes
+Route::middleware('guest')->group(function () {
+    // Show registration form
+    Route::view('/register', 'auth.register')->name('register');
+    Route::post('/register', RegisterController::class);
+    // Show login form
+    Route::view('/login', 'auth.login')->name('login');
+    Route::post('/login', LoginController::class);
+});
     
-// Home route
-Route::get('/', [HomeController::class, 'index'])
-    ->middleware('auth')
-    ->name('home');
-
-Route::get('/users/list', [UserController::class, 'index'])
-    ->middleware('auth')
-    ->name('users');
+// Protected routes
+Route::middleware('auth')->group(function () {
+    // Home routes
+    Route::get('/', [HomeController::class, 'index']);
+    Route::get('/users/list', [UserController::class, 'index']);
+    // Logout route
+    Route::post('/logout', LogoutController::class)->name('logout');
+});
