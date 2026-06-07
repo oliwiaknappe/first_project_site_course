@@ -24,6 +24,42 @@
                                 <span class="label-text-alt text-error">{{ $message }}</span>
                             </div>
                         @enderror
+                        <br>
+                        <br>
+                        <!-- Surname -->
+                        <label class="floating-label mb-6">
+                            <input type="text"
+                                   name="surname"
+                                   placeholder="Doe"
+                                   value="{{ old('surname') }}"
+                                   class="input input-bordered @error('surname') input-error @enderror"
+                                   required>
+                            <span>Surname</span>
+                        </label>
+                        @error('surname')
+                            <div class="label -mt-4 mb-2">
+                                <span class="label-text-alt text-error">{{ $message }}</span>
+                            </div>
+                        @enderror
+                        <br>
+                        <br>
+                        <!-- Phone_number -->
+                        <label class="floating-label mb-6">
+                            <input type="text"
+                                   name="phone_number"
+                                   placeholder="+1234567890"
+                                   value="{{ old('phone_number') }}"
+                                   class="input input-bordered @error('phone_number') input-error @enderror"
+                                   required>
+                            <span>Phone Number</span>
+                        </label>
+                        @error('phone_number')
+                            <div class="label -mt-4 mb-2">
+                                <span class="label-text-alt text-error">{{ $message }}</span>
+                            </div>
+                        @enderror
+                        <br>
+                        <br>
 
                         <!-- Email -->
                         <label class="floating-label mb-6">
@@ -40,7 +76,8 @@
                                 <span class="label-text-alt text-error">{{ $message }}</span>
                             </div>
                         @enderror
-
+                        <br>
+                        <br>
                         <!-- Password -->
                         <label class="floating-label mb-6">
                             <input type="password"
@@ -55,6 +92,8 @@
                                 <span class="label-text-alt text-error">{{ $message }}</span>
                             </div>
                         @enderror
+                        <br>
+                        <br>
 
                         <!-- Password Confirmation -->
                         <label class="floating-label mb-6">
@@ -65,7 +104,8 @@
                                    required>
                             <span>Confirm Password</span>
                         </label>
-
+                        <br>
+                        <br>
                         <!-- Submit Button -->
                         <div class="form-control mt-8">
                             <button type="submit" class="btn btn-primary btn-sm w-full">
