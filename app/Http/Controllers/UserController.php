@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\User;
+use Illuminate\Support\Facades\DB;
+use Illuminate\View\View;
 //use Faker\Factory;
 use Illuminate\Support\Facades\App;
 
@@ -12,10 +14,10 @@ class UserController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(): View
     {
         return view('users.index', [
-            "users" => User::all()
+            'users' => DB::table('users')->paginate(5)
         ]);
     }
 
