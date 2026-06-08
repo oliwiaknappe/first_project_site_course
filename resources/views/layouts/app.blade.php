@@ -80,5 +80,8 @@
         </main>
     </div>
     @vite(['resources/sass/app.scss', 'resources/js/app.js'])
+    <script type="module">
+        @yield('javascript')
+    </script>   
 </body>
 </html>
