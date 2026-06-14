@@ -23,7 +23,7 @@ Route::middleware('auth')->group(function () {
     Route::get('/', [HomeController::class, 'index']);
     Route::get('/users/list', [UserController::class, 'index']);
     // Delete route
-    Route::delete('/users/{id}', [UserController::class, 'destroy']);
+    Route::delete('/users/{user}', [UserController::class, 'destroy']);
     // Logout route
     Route::post('/logout', LogoutController::class)->name('logout');
 });

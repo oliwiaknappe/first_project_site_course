@@ -9,5 +9,7 @@
   $line-height-base: v.$line-height-base,
   $container-max-widths: v.$container-max-widths
 );
+//Sweetalerts
+@use 'sweetalert2/src/sweetalert2' as s;
 // Fonts
 @import url('https://fonts.bunny.net/css?family=Nunito');

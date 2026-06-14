@@ -1,5 +1,4 @@
 @extends('layouts.app')
-
 @section('content')
   <div class="container">
     <table class="table table-hover">
@@ -22,7 +21,7 @@
             <td>{{ $user->surname }}</td>
             <td>{{ $user->phone_number }}</td>
             <td>
-              <button class="btn btn-danger btn-sm delete" data-id="{{ $user->id }}">X</button>
+              <button class="btn btn-danger btn-sm delete" data-id="{{ $user->id }}" data-url="{{ url('users/' . $user->id) }}">X</button>
             </td>
           </tr>
         @endforeach
@@ -32,25 +31,7 @@
 </div>
 @endsection
 @section('javascript')
-  $(function() {
-    $.ajaxSetup({
-        headers: {
-            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-        }
-    });
-  $('.delete').click(function(){
-    $.ajax({
-      method:'DELETE',
-      url: 'http://project.test/users/' + $(this).data('id')
-      // data: {id: $(this).data('id')}
-    })
-    .done(function(response){
-      alert('Success');
-      window.location.reload();
-    })
-    .fail(function(response){
-      alert('Error');
-    });
-    });
-  });
+@endsection
+@section('js-files')
+  @vite('resources/js/delete.js')
 @endsection

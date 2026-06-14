@@ -20,6 +20,10 @@
     },
     "dependencies": {
         "axios": "^1.17.0",
-        "jquery": "^4.0.0"
-    }
+        "jquery": "^4.0.0",
+        "sweetalert2": "^11.26.25"
+    },
+    "overrides": {
+    "shell-quote": "^1.8.4"
+  }
 }

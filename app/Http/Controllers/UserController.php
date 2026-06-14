@@ -4,10 +4,12 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\User;
+use Exception;
 use Illuminate\Support\Facades\DB;
 use Illuminate\View\View;
 //use Faker\Factory;
 use Illuminate\Support\Facades\App;
+use PhpParser\Node\Stmt\TryCatch;
 
 class UserController extends Controller
 {
@@ -64,12 +66,18 @@ class UserController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy($id)
-    {
-        $flight = User::findOrFail($id);
-        $flight->delete();
-        return response()->json([
+    public function destroy(User $user)
+    {   
+        try{
+            $user->delete();
+            return response()->json([
             'status' => 'success'
-        ]);
+            ]);
+        } catch (Exception){
+            return response()->json([
+            'status' => 'error',
+            'message'=> 'Error occured, not good!'
+            ])->setStatusCode(500);
+        }
     }
 }
