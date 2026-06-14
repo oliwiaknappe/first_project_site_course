@@ -10,6 +10,7 @@
           <th scope="col">Name</th>
           <th scope="col">Surname</th>
           <th scope="col">Phone Number</th>
+          <th scope="col"></th>
         </tr>
       </thead>
       <tbody>
